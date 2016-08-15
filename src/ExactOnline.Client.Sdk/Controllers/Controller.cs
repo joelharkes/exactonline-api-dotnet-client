@@ -72,31 +72,37 @@ namespace ExactOnline.Client.Sdk.Controllers
 		/// <returns>List of entity Objects</returns>
 		public List<T> Get(string query)
 		{
-			// Get the response and convert it to a list of entities of the specific type
-			var response = _conn.Get(query);
-			response = ApiResponseCleaner.GetJsonArray(response);
-
-			var rc = new EntityConverter();
-			var entities = rc.ConvertJsonArrayToObjectList<T>(response);
-
-			// If the entity isn't managed already, register to managed entity collection
-			foreach (var entity in entities)
-			{
-				AddEntityToManagedEntitiesCollection(entity);
-			}
-
-			// Convert list
-			var returnList = entities.ConvertAll(x => x);
-			return returnList;
+            var g = Guid.Empty;
+            return Get(query, ref g);
 		}
 
-		/// <summary>
-		/// Get entity using specific GUID
-		/// </summary>
-		/// <param name="guid">Global Unique Identifier of the entity</param>
-		/// <param name="parameters">parameters</param>
-		/// <returns>Entity if exists. Null if entity not exists.</returns>
-		public T GetEntity(string guid, string parameters)
+        public List<T> Get(string query, ref Guid skipToken)
+        {
+            // Get the response and convert it to a list of entities of the specific type
+            var response = _conn.Get(query);
+            response = ApiResponseCleaner.GetJsonArray(response, ref skipToken);
+
+            var rc = new EntityConverter();
+            var entities = rc.ConvertJsonArrayToObjectList<T>(response);
+
+            // If the entity isn't managed already, register to managed entity collection
+            foreach (var entity in entities)
+            {
+                AddEntityToManagedEntitiesCollection(entity);
+            }
+
+            // Convert list
+            var returnList = entities.ConvertAll(x => x);
+            return returnList;
+        }
+
+        /// <summary>
+        /// Get entity using specific GUID
+        /// </summary>
+        /// <param name="guid">Global Unique Identifier of the entity</param>
+        /// <param name="parameters">parameters</param>
+        /// <returns>Entity if exists. Null if entity not exists.</returns>
+        public T GetEntity(string guid, string parameters)
 		{
 			if (guid.Contains('}') || guid.Contains('{'))
 			{

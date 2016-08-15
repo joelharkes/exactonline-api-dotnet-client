@@ -67,11 +67,26 @@ namespace ExactOnline.Client.Sdk.Controllers
 			return currentMe.FirstOrDefault();
 		}
 
-		/// <summary>
-		/// return the division number of the current user
-		/// </summary>
-		/// <returns>Division number</returns>
-		public int GetDivision()
+        public bool CreateSubscription(string Topic, string CallbackURL) {
+            //DoPostRequest
+            var conn = new ApiConnection(_apiConnector, _exactOnlineApiUrl + _division + "/webhooks/WebhookSubscriptions");
+            string response = conn.Post(string.Format(@"{{ CallbackURL: '{0}', Topic: '{1}'}}", CallbackURL, Topic));
+            return true;
+        }
+
+        public bool RemoveSubscription(Guid subscriptionId)
+        {
+            //DoPostRequest
+            var conn = new ApiConnection(_apiConnector, _exactOnlineApiUrl + "webhooks/WebhookSubscriptions");
+            //webhooks / WebhookSubscriptions(guid'{AE0253AA-67AB-480B-9321-F27C50AF22B7}')
+            return conn.Delete(subscriptionId);
+        }
+
+        /// <summary>
+        /// return the division number of the current user
+        /// </summary>
+        /// <returns>Division number</returns>
+        public int GetDivision()
 		{
 			if (_division > 0)
 			{

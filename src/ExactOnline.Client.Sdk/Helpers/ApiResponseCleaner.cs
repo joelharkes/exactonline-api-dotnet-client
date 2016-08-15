@@ -43,12 +43,18 @@ namespace ExactOnline.Client.Sdk.Helpers
 			return output;
 		}
 
-		/// <summary>
-		/// Fetch Json Array (Json within ['d']['results']) from response
-		/// </summary>
-		public static string GetJsonArray(string response)
+        public static string GetJsonArray(string response)
+        {
+            var g = Guid.Empty;
+            return GetJsonArray(response, ref g);
+        }
+        /// <summary>
+        /// Fetch Json Array (Json within ['d']['results']) from response
+        /// </summary>
+        public static string GetJsonArray(string response, ref Guid skipToken)
 		{
-			var serializer = new JavaScriptSerializer();
+            skipToken = Guid.NewGuid();
+            var serializer = new JavaScriptSerializer();
 			serializer.RegisterConverters(new JavaScriptConverter[] { new JssDateTimeConverter() });
 			
 			var oldCulture = Thread.CurrentThread.CurrentCulture;
@@ -61,6 +67,16 @@ namespace ExactOnline.Client.Sdk.Helpers
 				if (innerPart.GetType() == typeof(Dictionary<string, object>))
 				{
 					var d = (Dictionary<string, object>)dict["d"];
+                    //$skiptoken=guid'39849964-a616-4847-8907-ddfad99ff4aa'
+                    if (d.ContainsKey("__next"))
+                    {
+                        var link = d["__next"] as string;
+                        var param = "$skiptoken=guid'";
+                        if (string.IsNullOrEmpty(link) && link.ToLower().Contains(param)) { skipToken = new Guid(link.Substring(link.IndexOf(param) + param.Length, 36)); }
+                    } else
+                    {
+                        skipToken = Guid.Empty;
+                    }
 					results = (ArrayList)d["results"];
 				}
 				else

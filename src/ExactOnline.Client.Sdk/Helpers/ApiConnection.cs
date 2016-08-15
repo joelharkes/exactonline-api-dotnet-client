@@ -51,14 +51,32 @@ namespace ExactOnline.Client.Sdk.Helpers
 			return response;
 		}
 
-		/// <summary>
-		/// Performs a GET (Read) request on the API for one specific entity
-		/// </summary>
-		/// <param name="keyname">Name of the field that is the unique identifier</param>
-		/// <param name="guid">Global Unique Identifier of the entity</param>
-		/// <param name="parameters">Parameters</param>
-		/// <returns>Json String</returns>
-		public string GetEntity(string keyname, string guid, string parameters)
+        public bool Delete(Guid id)
+        {
+            Boolean returnValue = false;
+            ///api/v1/{division}/webhooks/WebhookSubscriptions(guid'{AE0253AA-67AB-480B-9321-F27C50AF22B7}')
+            var endpoint = string.Format("{0}(guid'{1}')", EndPoint,id);
+
+                // Create endpoint and get response
+            string response = _conn.DoDeleteRequest(endpoint);
+
+            // Reponse is empty on success
+            if (response == string.Empty)
+            {
+                returnValue = true;
+            }
+            
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Performs a GET (Read) request on the API for one specific entity
+        /// </summary>
+        /// <param name="keyname">Name of the field that is the unique identifier</param>
+        /// <param name="guid">Global Unique Identifier of the entity</param>
+        /// <param name="parameters">Parameters</param>
+        /// <returns>Json String</returns>
+        public string GetEntity(string keyname, string guid, string parameters)
 		{
 			if (guid == string.Empty || keyname == string.Empty)
 			{
