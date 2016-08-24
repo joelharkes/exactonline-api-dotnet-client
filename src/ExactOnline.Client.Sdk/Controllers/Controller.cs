@@ -72,11 +72,11 @@ namespace ExactOnline.Client.Sdk.Controllers
 		/// <returns>List of entity Objects</returns>
 		public List<T> Get(string query)
 		{
-            var g = Guid.Empty;
+            var g = "";
             return Get(query, ref g);
 		}
 
-        public List<T> Get(string query, ref Guid skipToken)
+        public List<T> Get(string query, ref string skipToken)
         {
             // Get the response and convert it to a list of entities of the specific type
             var response = _conn.Get(query);

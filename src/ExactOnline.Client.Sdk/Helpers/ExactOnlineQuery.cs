@@ -161,9 +161,9 @@ namespace ExactOnline.Client.Sdk.Helpers
             return this;
         }
 
-        public ExactOnlineQuery<T> SkipToken(Guid skipToken)
+        public ExactOnlineQuery<T> SkipToken(string skipToken)
         {
-            _skipToken = skipToken == Guid.Empty ? "" : string.Format("$skiptoken=guid'{0}'", skipToken.ToString().Trim(new char[] { '{','}' }));
+            _skipToken = string.IsNullOrEmpty(skipToken) ? "" : string.Format("$skiptoken={0}", skipToken);
             return this;
         }
 
@@ -220,9 +220,9 @@ namespace ExactOnline.Client.Sdk.Helpers
             return _controller.Get(CreateODataQuery(true));
         }
 
-        public List<T> Get(ref Guid skipToken)
+        public List<T> Get(ref string skipToken)
         {
-            if (skipToken != Guid.Empty) { this.SkipToken(skipToken); } else { _skipToken = ""; }
+            if (!string.IsNullOrEmpty(skipToken)) { this.SkipToken(skipToken); } else { _skipToken = ""; }
             return _controller.Get(CreateODataQuery(true), ref skipToken);
         }
 

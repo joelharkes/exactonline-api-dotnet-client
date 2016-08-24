@@ -7,6 +7,7 @@ using ExactOnline.Client.Sdk.Exceptions;
 using Newtonsoft.Json;
 using System.Globalization;
 using System.Threading;
+using System.Diagnostics;
 
 namespace ExactOnline.Client.Sdk.Helpers
 {
@@ -45,19 +46,19 @@ namespace ExactOnline.Client.Sdk.Helpers
 
         public static string GetJsonArray(string response)
         {
-            var g = Guid.Empty;
+            var g = "";
             return GetJsonArray(response, ref g);
         }
         /// <summary>
         /// Fetch Json Array (Json within ['d']['results']) from response
         /// </summary>
-        public static string GetJsonArray(string response, ref Guid skipToken)
+        public static string GetJsonArray(string response, ref string skipToken)
 		{
-            skipToken = Guid.NewGuid();
+            //skipToken = Guid.NewGuid();
             var serializer = new JavaScriptSerializer();
 			serializer.RegisterConverters(new JavaScriptConverter[] { new JssDateTimeConverter() });
-			
-			var oldCulture = Thread.CurrentThread.CurrentCulture;
+			serializer.MaxJsonLength = Int32.MaxValue;
+            var oldCulture = Thread.CurrentThread.CurrentCulture;
 			Thread.CurrentThread.CurrentCulture =CultureInfo.InvariantCulture;
 			try
 			{
@@ -71,11 +72,19 @@ namespace ExactOnline.Client.Sdk.Helpers
                     if (d.ContainsKey("__next"))
                     {
                         var link = d["__next"] as string;
-                        var param = "$skiptoken=guid'";
-                        if (string.IsNullOrEmpty(link) && link.ToLower().Contains(param)) { skipToken = new Guid(link.Substring(link.IndexOf(param) + param.Length, 36)); }
+                        var param = "$skiptoken=";
+                        if (!string.IsNullOrEmpty(link))
+                        {
+                            if (link.ToLower().Contains(param)) {
+                                skipToken = link.Substring(link.IndexOf(param) + param.Length);
+                            } else
+                            {
+                                Debugger.Break();
+                            }
+                        }
                     } else
                     {
-                        skipToken = Guid.Empty;
+                        skipToken = "";
                     }
 					results = (ArrayList)d["results"];
 				}

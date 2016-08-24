@@ -8,7 +8,7 @@ namespace ExactOnline.Client.Sdk.Interfaces
 	{
 		List<T> Get(string query);
 
-        List<T> Get(string query, ref Guid skipToken);
+        List<T> Get(string query, ref string skipToken);
 
         T GetEntity(string guid, string parameters);
 
