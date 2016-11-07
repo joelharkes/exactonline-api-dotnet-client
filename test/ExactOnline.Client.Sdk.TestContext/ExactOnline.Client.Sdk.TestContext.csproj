@@ -63,6 +63,10 @@
     <Compile Include="TestObjectsCreator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\ExactOnline.Client.Models\ExactOnline.Client.Models.csproj">
+      <Project>{749e6968-efeb-43f7-85b9-12e82b50e6d0}</Project>
+      <Name>ExactOnline.Client.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\ExactOnline.Client.OAuth\ExactOnline.Client.OAuth.csproj">
       <Project>{610fe8c1-f026-4567-8b47-8cb6338251f6}</Project>
       <Name>ExactOnline.Client.OAuth</Name>

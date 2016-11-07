@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{749E6968-EFEB-43F7-85B9-12E82B50E6D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExactOnline.Client.Models</RootNamespace>
+    <AssemblyName>ExactOnline.Models2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DataServiceKey.cs" />
+    <Compile Include="Attributes\FieldType.cs" />
+    <Compile Include="Attributes\Me.cs" />
+    <Compile Include="Attributes\SdkFieldType.cs" />
+    <Compile Include="Attributes\SupportedActionsSdk.cs" />
+    <Compile Include="Models\AcceptedQuotation.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountClass.cs" />
+    <Compile Include="Models\AccountClassification.cs" />
+    <Compile Include="Models\AccountClassificationName.cs" />
+    <Compile Include="Models\AccountInvolvedAccount.cs" />
+    <Compile Include="Models\AccountOwner.cs" />
+    <Compile Include="Models\ActiveEmployment.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\AddressState.cs" />
+    <Compile Include="Models\AgingAmountsPayable.cs" />
+    <Compile Include="Models\AgingAmountsReceivable.cs" />
+    <Compile Include="Models\AgingOverview.cs" />
+    <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\Bank.cs" />
+    <Compile Include="Models\BankAccount.cs" />
+    <Compile Include="Models\BankEntry.cs" />
+    <Compile Include="Models\BankEntryLine.cs" />
+    <Compile Include="Models\BatchNumber.cs" />
+    <Compile Include="Models\Budget.cs" />
+    <Compile Include="Models\CashEntry.cs" />
+    <Compile Include="Models\CashEntryLine.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Costcenter.cs" />
+    <Compile Include="Models\CostTransaction.cs" />
+    <Compile Include="Models\Costunit.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\DepreciationMethod.cs" />
+    <Compile Include="Models\DirectDebitMandate.cs" />
+    <Compile Include="Models\Division.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\DocumentAttachment.cs" />
+    <Compile Include="Models\DocumentCategory.cs" />
+    <Compile Include="Models\DocumentFolder.cs" />
+    <Compile Include="Models\DocumentType.cs" />
+    <Compile Include="Models\DocumentTypeCategory.cs" />
+    <Compile Include="Models\DocumentTypeFolder.cs" />
+    <Compile Include="Models\Employment.cs" />
+    <Compile Include="Models\EmploymentContract.cs" />
+    <Compile Include="Models\EmploymentContractFlexPhase.cs" />
+    <Compile Include="Models\EmploymentEndReason.cs" />
+    <Compile Include="Models\EmploymentOrganization.cs" />
+    <Compile Include="Models\EmploymentSalary.cs" />
+    <Compile Include="Models\ExchangeRate.cs" />
+    <Compile Include="Models\FinancialPeriod.cs" />
+    <Compile Include="Models\GeneralJournalEntry.cs" />
+    <Compile Include="Models\GeneralJournalEntryLine.cs" />
+    <Compile Include="Models\GLAccount.cs" />
+    <Compile Include="Models\GLClassification.cs" />
+    <Compile Include="Models\GLScheme.cs" />
+    <Compile Include="Models\GLTransactionType.cs" />
+    <Compile Include="Models\GoodsDelivery.cs" />
+    <Compile Include="Models\GoodsDeliveryLine.cs" />
+    <Compile Include="Models\HourCostType.cs" />
+    <Compile Include="Models\InvoiceSalesOrders.cs" />
+    <Compile Include="Models\InvolvedUser.cs" />
+    <Compile Include="Models\InvolvedUserRole.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemGroup.cs" />
+    <Compile Include="Models\ItemVersion.cs" />
+    <Compile Include="Models\ItemWarehouse.cs" />
+    <Compile Include="Models\JobGroup.cs" />
+    <Compile Include="Models\JobTitle.cs" />
+    <Compile Include="Models\Journal.cs" />
+    <Compile Include="Models\JournalStatus.cs" />
+    <Compile Include="Models\Layout.cs" />
+    <Compile Include="Models\Mailbox.cs" />
+    <Compile Include="Models\MailMessage.cs" />
+    <Compile Include="Models\MailMessageAttachment.cs" />
+    <Compile Include="Models\ManufacturingTimeTransaction.cs" />
+    <Compile Include="Models\OpeningBalanceAfterEntry.cs" />
+    <Compile Include="Models\OpeningBalancePreviousYearAfterEntry.cs" />
+    <Compile Include="Models\OpeningBalancePreviousYearProcessed.cs" />
+    <Compile Include="Models\OpeningBalanceProcessed.cs" />
+    <Compile Include="Models\Operation.cs" />
+    <Compile Include="Models\OperationResource.cs" />
+    <Compile Include="Models\Opportunity.cs" />
+    <Compile Include="Models\OpportunityContact.cs" />
+    <Compile Include="Models\OutstandingInvoiceOverview.cs" />
+    <Compile Include="Models\Payable.cs" />
+    <Compile Include="Models\PaymentCondition.cs" />
+    <Compile Include="Models\PeriodRevenue.cs" />
+    <Compile Include="Models\PriceList.cs" />
+    <Compile Include="Models\PrintedQuotation.cs" />
+    <Compile Include="Models\PrintedSalesInvoice.cs" />
+    <Compile Include="Models\PrintedSalesOrder.cs" />
+    <Compile Include="Models\ProductionArea.cs" />
+    <Compile Include="Models\ProfitLossOverview.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectBudgetType.cs" />
+    <Compile Include="Models\ProjectHourBudget.cs" />
+    <Compile Include="Models\ProjectRestrictionEmployee.cs" />
+    <Compile Include="Models\ProjectRestrictionItem.cs" />
+    <Compile Include="Models\ProjectRestrictionRebilling.cs" />
+    <Compile Include="Models\ProjectTerm.cs" />
+    <Compile Include="Models\PurchaseEntry.cs" />
+    <Compile Include="Models\PurchaseEntryLine.cs" />
+    <Compile Include="Models\PurchaseOrder.cs" />
+    <Compile Include="Models\PurchaseOrderLine.cs" />
+    <Compile Include="Models\Quotation.cs" />
+    <Compile Include="Models\QuotationLine.cs" />
+    <Compile Include="Models\ReasonCode.cs" />
+    <Compile Include="Models\Receivable.cs" />
+    <Compile Include="Models\RecentCosts.cs" />
+    <Compile Include="Models\RecentHours.cs" />
+    <Compile Include="Models\RejectedQuotation.cs" />
+    <Compile Include="Models\ReopenedQuotation.cs" />
+    <Compile Include="Models\ReportingBalance.cs" />
+    <Compile Include="Models\ReviewedQuotation.cs" />
+    <Compile Include="Models\SalesEntry.cs" />
+    <Compile Include="Models\SalesEntryLine.cs" />
+    <Compile Include="Models\SalesInvoice.cs" />
+    <Compile Include="Models\SalesInvoiceLine.cs" />
+    <Compile Include="Models\SalesItemPrice.cs" />
+    <Compile Include="Models\SalesOrder.cs" />
+    <Compile Include="Models\SalesOrderID.cs" />
+    <Compile Include="Models\SalesOrderLine.cs" />
+    <Compile Include="Models\SalesPriceListDetail.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\SerialNumber.cs" />
+    <Compile Include="Models\ShippingMethod.cs" />
+    <Compile Include="Models\ShopOrder.cs" />
+    <Compile Include="Models\ShopOrderMaterialPlan.cs" />
+    <Compile Include="Models\ShopOrderRoutingStepPlan.cs" />
+    <Compile Include="Models\SolutionLink.cs" />
+    <Compile Include="Models\StockBatchNumber.cs" />
+    <Compile Include="Models\StockCount.cs" />
+    <Compile Include="Models\StockCountLine.cs" />
+    <Compile Include="Models\StockSerialNumber.cs" />
+    <Compile Include="Models\StorageLocation.cs" />
+    <Compile Include="Models\Subscription.cs" />
+    <Compile Include="Models\SubscriptionChargeType.cs" />
+    <Compile Include="Models\SubscriptionLine.cs" />
+    <Compile Include="Models\SubscriptionReasonCode.cs" />
+    <Compile Include="Models\SubscriptionRestrictionEmployee.cs" />
+    <Compile Include="Models\SubscriptionRestrictionItem.cs" />
+    <Compile Include="Models\SubscriptionType.cs" />
+    <Compile Include="Models\TaxComponentRate.cs" />
+    <Compile Include="Models\TaxDocument.cs" />
+    <Compile Include="Models\TaxEmploymentEndFlexCode.cs" />
+    <Compile Include="Models\TaxSchedule.cs" />
+    <Compile Include="Models\TaxScheduleComponent.cs" />
+    <Compile Include="Models\TimeAndBillingAccount.cs" />
+    <Compile Include="Models\TimeAndBillingAccountDetails.cs" />
+    <Compile Include="Models\TimeAndBillingActivitiesAndExpenses.cs" />
+    <Compile Include="Models\TimeAndBillingItemDetails.cs" />
+    <Compile Include="Models\TimeAndBillingProject.cs" />
+    <Compile Include="Models\TimeAndBillingProjectDetails.cs" />
+    <Compile Include="Models\TimeAndBillingRecentAccount.cs" />
+    <Compile Include="Models\TimeAndBillingRecentActivitiesAndExpenses.cs" />
+    <Compile Include="Models\TimeAndBillingRecentHourCostType.cs" />
+    <Compile Include="Models\TimeAndBillingRecentProject.cs" />
+    <Compile Include="Models\TimeCorrection.cs" />
+    <Compile Include="Models\TimeTransaction.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionLine.cs" />
+    <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Models\UserRolePerDivision.cs" />
+    <Compile Include="Models\VATCode.cs" />
+    <Compile Include="Models\VatPercentage.cs" />
+    <Compile Include="Models\Warehouse.cs" />
+    <Compile Include="Models\Workcenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Services.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

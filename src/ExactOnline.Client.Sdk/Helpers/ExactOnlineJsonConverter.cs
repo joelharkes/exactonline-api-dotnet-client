@@ -70,10 +70,10 @@ namespace ExactOnline.Client.Sdk.Helpers
 		/// <returns></returns>
 		private static Boolean IsWriteField(PropertyInfo pi)
 		{
-			Attribute[] attributes = pi.GetCustomAttributes().Where(x => x.GetType() == typeof(SDKFieldType)).ToArray();
+			Attribute[] attributes = pi.GetCustomAttributes().Where(x => x.GetType() == typeof(SdkFieldType)).ToArray();
 
 			Boolean returnValue = true;
-			foreach (SDKFieldType field in attributes)
+			foreach (SdkFieldType field in attributes)
 			{
 				if (
 						(field.TypeOfField == FieldType.ReadOnly) 

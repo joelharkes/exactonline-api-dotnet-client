@@ -21,7 +21,12 @@ namespace ExactOnline.Client.Sdk.UnitTests.MockObjects
 			return null;
 		}
 
-		T IController<T>.GetEntity(string guid, string parameters)
+	    public List<T> Get(string query, ref string skipToken)
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    T IController<T>.GetEntity(string guid, string parameters)
 		{
 
 			throw new NotImplementedException();

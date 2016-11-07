@@ -24,7 +24,7 @@ namespace ExactOnline.Client.Sdk.Helpers
 			_baseUrl = baseUrl;
 			_connector = connector;
 			_controllers = new Hashtable();
-			_services = new Services().Services;
+			_services = new ServicesContainer().Services;
 		}
 
 		/// <summary>

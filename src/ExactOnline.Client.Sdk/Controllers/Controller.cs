@@ -45,7 +45,7 @@ namespace ExactOnline.Client.Sdk.Controllers
 				throw new Exception("Cannot find 'DataServiceKey' field. This entity cannot be managed by the Controller");
 			}
 			var key = (DataServiceKey)enumerable.First();
-			_keyname = key.DataServiceKey;
+			_keyname = key.DataServiceKey2;
 			_entityControllerDelegate = GetEntityController;
 		}
 
@@ -122,7 +122,7 @@ namespace ExactOnline.Client.Sdk.Controllers
 
 		private Boolean IsCreateable(T entity)
 		{
-			var actions = (SupportedActionsSDK)entity.GetType().GetCustomAttribute(typeof(SupportedActionsSDK));
+			var actions = (SupportedActionsSdk)entity.GetType().GetCustomAttribute(typeof(SupportedActionsSdk));
 			if (actions != null)
 			{
 				return actions.CanCreate;
@@ -170,7 +170,7 @@ namespace ExactOnline.Client.Sdk.Controllers
 
 		private Boolean IsUpdateable(T entity)
 		{
-			var actions = (SupportedActionsSDK)entity.GetType().GetCustomAttribute(typeof(SupportedActionsSDK));
+			var actions = (SupportedActionsSdk)entity.GetType().GetCustomAttribute(typeof(SupportedActionsSdk));
 			if (actions != null)
 			{
 				return actions.CanUpdate;
@@ -201,7 +201,7 @@ namespace ExactOnline.Client.Sdk.Controllers
 
 		private Boolean IsDeleteable(T entity)
 		{
-			var actions = (SupportedActionsSDK)entity.GetType().GetCustomAttribute(typeof(SupportedActionsSDK));
+			var actions = (SupportedActionsSdk)entity.GetType().GetCustomAttribute(typeof(SupportedActionsSdk));
 			if (actions != null)
 			{
 				return actions.CanDelete;

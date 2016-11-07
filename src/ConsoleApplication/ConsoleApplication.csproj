@@ -59,8 +59,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExactOnline.Client.Models\ExactOnline.Client.Models.vbproj">
-      <Project>{bd9a83f1-1106-45bb-bcba-a54d6c213fdc}</Project>
+    <ProjectReference Include="..\ExactOnline.Client.Models\ExactOnline.Client.Models.csproj">
+      <Project>{749e6968-efeb-43f7-85b9-12e82b50e6d0}</Project>
       <Name>ExactOnline.Client.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExactOnline.Client.OAuth\ExactOnline.Client.OAuth.csproj">
